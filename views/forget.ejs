@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forgot Password</title>
+    <link rel="stylesheet" href="/css/forget.css">
+</head>
+<body>
+    <div id="forget_password">
+        <div class="sp1">
+            <h2>Forgot Password</h2>
+            <form id="forget-form">
+                <label for="email_input" id="email-forget">Enter your email:</label>
+                <input type="email" id="email_input" name="email" placeholder="Email" required>
+                <button type="submit" id="btn-forget">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('forget-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const email = document.getElementById('email_input').value;
+    
+            try {
+                const response = await fetch('/forget', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ email }),
+                });
+    
+                const data = await response.json();
+    
+                if (response.ok) {
+                    alert(data.message);
+                    // Redirect to newpassword.html and pass the email as a query parameter
+                    window.location.href = `/newpassword.html?email=${encodeURIComponent(email)}`;
+                } else {
+                    alert(data.message); // Show error message
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('An error occurred');
+            }
+        });
+    </script>    
+</body>
+</html>

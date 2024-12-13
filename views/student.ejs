@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Panel</title>
+    <link rel="stylesheet" href="/css/student.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="/images/download.jpg" alt="School Logo" id="img">
+                <h1>Sabri Public High School</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="community.html">Community</a></li>
+                <li><a href="logout.html">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="student-panel">
+            <h2>Welcome, <%= name%></h2>
+            <div class="button-container">
+                <button onclick="viewMarks()">View Marks</button>
+                <button onclick="viewAttendance()">View Attendance</button>
+                <button onclick="viewAnnualResult()">View Annual Result</button>
+            </div>
+        </section>
+
+        <!-- View Marks Section -->
+        <section id="marks-section" class="hidden">
+            <h3>Your Marks</h3>
+            <div id="marks-content">
+                <!-- Marks content will be dynamically added here -->
+            </div>
+        </section>
+
+        <!-- View Attendance Section -->
+        <section id="attendance-section" class="hidden">
+            <h3>Your Attendance</h3>
+            <div id="attendance-content">
+                <!-- Attendance content will be dynamically added here -->
+            </div>
+        </section>
+
+        <!-- View Annual Result Section -->
+        <section id="result-section" class="hidden">
+            <h3>Your Annual Result</h3>
+            <div id="result-content">
+                <!-- Result content will be dynamically added here -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Sabri Public High School, Chak 313 JB. All Rights Reserved.</p>
+    </footer>
+
+    <script src="/javascript/student.js"></script>
+</body>
+</html>

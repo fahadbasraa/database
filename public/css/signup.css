@@ -1,0 +1,101 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: white;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    width: 90%;
+    max-width: 450px;
+    background: rgb(233, 238, 239);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+}
+
+header nav ul {
+    display: flex;
+    justify-content: flex-end;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+header nav ul li {
+    margin: 0 10px;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.form-container h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: black;
+}
+/* Form Group Styling */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    margin-left: 25px;
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: black;
+}
+
+.form-group input, 
+.form-group select {
+    margin-left: 25px;
+    width: 80%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.form-group input:focus, 
+.form-group select:focus {
+    border-color: rgb(73, 141, 249);
+    outline: none;
+}
+
+/* Button Styling */
+form button {
+    background: rgb(73, 141, 249);
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;
+}
+
+form button:hover {
+    background: rgb(53, 121, 229);
+}
+
+/* Login Link Styling */
+.login-link {
+    text-align: center;
+    font-size: 14px;
+}
+
+.login-link a {
+    color: rgb(73, 141, 249);
+    text-decoration: none;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}

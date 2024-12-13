@@ -1,0 +1,163 @@
+/* General Styles */
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Header */
+header {
+    background-color: #1E88E5;
+    padding: 15px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+}
+
+.logo img {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li {
+    font-size: 1.1em;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #1565C0;
+}
+
+/* Admin Panel */
+.panel {
+    background-color: #ffffff;
+    width: 80%;
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center; /* Center buttons horizontally */
+}
+
+h2 {
+    font-size: 2em;
+    color: #1E88E5;
+    margin-bottom: 30px;
+}
+
+.panel .button-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center buttons horizontally */
+    gap: 20px;
+    width: 100%; /* Ensure buttons are within the container */
+}
+
+.panel button {
+    padding: 15px 30px;
+    margin: 10px;
+    font-size: 1.1em;
+    border: none;
+    border-radius: 8px;
+    background-color: #1E88E5;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 250px; /* Consistent button size */
+}
+
+.panel button:hover {
+    background-color: #1565C0;
+    transform: scale(1.05);
+}
+
+/* Hover Effect for Buttons */
+.panel button:focus {
+    outline: none;
+}
+
+.card {
+    background-color: #fafafa;
+    padding: 15px;
+    text-align: center;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card h3 {
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+
+.card-link {
+    text-decoration: none;
+    color: #1E88E5;
+    font-weight: bold;
+    display: block;
+    padding: 10px;
+    transition: color 0.3s, transform 0.2s;
+}
+
+.card-link:hover {
+    color: #1565C0;
+    transform: scale(1.05);
+}
+
+/* Footer Styling */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #1E88E5;
+    color: #fff;
+    margin-top: auto;
+    width: 100%;
+    font-size: 1em;
+}
+
+/* Additional Responsive Styles */
+@media (max-width: 768px) {
+    .panel {
+        width: 95%;
+        padding: 20px;
+    }
+
+    .panel button {
+        width: 100%;
+        font-size: 1.0em;
+        padding: 12px;
+    }
+
+    .card {
+        padding: 12px;
+    }
+}

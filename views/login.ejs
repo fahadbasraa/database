@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <div class="login">
+        <form action="" class="sp">
+            <h3><b>LOGIN</b></h3>
+            <label id="email" for="">Email</label>
+            <input id="email_holder" type="email" placeholder="Enter the email">
+            <label id="password" for="">Password</label>
+            <input id="password_holder" placeholder="Password" type="password">
+            <button id="Btn">Log In</button>
+            <a id="forget" href="forget.html">Forget password?</a>
+            <a id="signup" href="signup.html"><b>Signup</b></a>
+        </form>
+    </div>
+    <script>
+        document.getElementById('Btn').addEventListener('click', async (e) => {
+            e.preventDefault();
+            
+            const email = document.getElementById('email_holder').value;
+            const password = document.getElementById('password_holder').value;
+            
+            try {
+                const response = await fetch('/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ email, password })
+                });
+                
+                if (response.ok) {
+                    alert('Login successful');
+                    // Redirect to dashboard or home page
+                } else {
+                    alert('Invalid email or password');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('An error occurred during login');
+            }
+        });
+    </script>
+    
+</body>
+
+</html>

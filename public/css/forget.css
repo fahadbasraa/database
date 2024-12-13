@@ -1,0 +1,91 @@
+/* General body styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7fc; /* Light background color */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#forget_password {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+/* Styling for the form container */
+.sp1 {
+    background-color: #fff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Soft shadow around the form */
+    padding: 40px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+/* Styling the form heading */
+h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Label styles */
+#email-forget {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #555;
+}
+
+/* Input field styles */
+input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+
+/* Input placeholder styles */
+input[type="email"]::placeholder {
+    font-size: 14px;
+}
+
+/* Button styles */
+#btn-forget {
+    width: 100%;
+    padding: 12px;
+    background-color: #4a90e2; /* Soft blue background */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#btn-forget:hover {
+    background-color: #357ABD; /* Darker blue on hover */
+}
+
+/* Error and Success message */
+.error, .success {
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+/* Focus effect on input field */
+input[type="email"]:focus {
+    border-color: #4a90e2; /* Border turns blue when focused */
+    outline: none;
+}

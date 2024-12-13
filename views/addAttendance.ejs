@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Attendance</title>
+    <link rel="stylesheet" href="/css/addAttendance.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="/images/download.jpg" alt="School Logo" id="img">
+                <h1>Sabri Public High School</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="community.html">Community</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="faculty.html">Back to Faculty Panel</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Add Attendance Section -->
+    <main>
+        <section id="add-attendance" class="panel">
+            <h2>Mark Attendance</h2>
+            <form id="attendanceForm">
+                <label for="date">Date:</label>
+                <input type="date" id="date" name="date" required><br>
+
+                <label for="class">Class:</label>
+                <input type="text" id="class" name="class" placeholder="Enter class (e.g., 8th A)" required><br>
+
+                <label for="studentName">Student Name:</label>
+                <input type="text" id="studentName" name="studentName" placeholder="Enter student name" required><br>
+
+                <label for="attendanceStatus">Status:</label>
+                <select id="attendanceStatus" name="attendanceStatus" required>
+                    <option value="">Select Status</option>
+                    <option value="Present">Present</option>
+                    <option value="Absent">Absent</option>
+                </select><br>
+
+                <button type="button" onclick="submitAttendance()">Submit</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Sabri Public High School, Chak 313 JB. All Rights Reserved.</p>
+    </footer>
+
+    <script src="/javascript/addAttendance.js"></script>
+</body>
+</html>

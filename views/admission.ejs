@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/admission.css">
+</head>
+<body>
+    <!-- Admission Form Section -->
+<section id="admission" class="admission">
+    <h2>Admission Form</h2>
+    <form id="admission-form">
+        <label for="student-name">Student Name</label>
+        <input type="text" id="student-name" name="student-name" placeholder="Full Name" required>
+
+        <label for="age">Age</label>
+        <input type="number" id="age" name="age" placeholder="Age" required>
+
+        <label for="grade">Grade</label>
+        <select id="grade" name="grade" required>
+            <option value="" disabled selected>Select Grade</option>
+            <option value="1">Grade 1</option>
+            <option value="2">Grade 2</option>
+            <option value="3">Grade 3</option>
+            <option value="4">Grade 4</option>
+            <option value="5">Grade 5</option>
+            <option value="6">Grade 6</option>
+            <option value="7">Grade 7</option>
+            <option value="8">Grade 8</option>
+            <option value="9">Grade 9</option>
+            <option value="10">Grade 10</option>
+        </select>
+
+        <label for="email">Parent's Email</label>
+        <input type="email" id="email" name="email" placeholder="Parent's Email" required>
+
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" placeholder="Phone Number" required>
+
+        <label for="address">Address</label>
+        <textarea id="address" name="address" placeholder="Home Address" required></textarea>
+
+        <button type="submit">Submit Application</button>
+    </form>
+</section>
+<script src="/javascript/admission.js"></script>
+</body>
+</html>

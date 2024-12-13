@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parent Panel</title>
+    <link rel="stylesheet" href="/css/parent.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <img src="/images/download.jpg" alt="School Logo" id="img">
+                <h1>Sabri Public High School</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="community.html">Community</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="logout.html">Logout</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Parent Panel Section -->
+    <main>
+        <section id="parent-panel" class="panel">
+            <h2>Welcome Parent</h2>
+
+            <!-- Parent Actions (Buttons for actions they can perform) -->
+            <div class="button-container">
+                <button onclick="viewGrades()">View Student Grades</button>
+                <button onclick="viewAttendance()">View Student Attendance</button>
+                <button onclick="giveReview()">Give Review</button>
+            </div>
+
+            <!-- Hidden Sections for Grades, Attendance, and Reviews -->
+            <div id="grades-section" class="hidden">
+                <h3>Student Grades</h3>
+                <table>
+                    <tr>
+                        <th>Subject</th>
+                        <th>Grade</th>
+                    </tr>
+                    <tr>
+                        <td>Mathematics</td>
+                        <td>A</td>
+                    </tr>
+                    <tr>
+                        <td>Science</td>
+                        <td>B+</td>
+                    </tr>
+                    <tr>
+                        <td>English</td>
+                        <td>A-</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div id="attendance-section" class="hidden">
+                <h3>Student Attendance</h3>
+                <table>
+                    <tr>
+                        <th>Date</th>
+                        <th>Status</th>
+                    </tr>
+                    <tr>
+                        <td>01/12/2024</td>
+                        <td>Present</td>
+                    </tr>
+                    <tr>
+                        <td>02/12/2024</td>
+                        <td>Absent</td>
+                    </tr>
+                    <tr>
+                        <td>03/12/2024</td>
+                        <td>Present</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div id="review-section" class="hidden">
+                <h3>Give Your Review</h3>
+                <form action="#">
+                    <label for="review">Review: </label>
+                    <textarea id="review" rows="5" cols="40" placeholder="Enter your review here..."></textarea>
+                    <button type="submit">Submit Review</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 Sabri Public High School, Chak 313 JB. All Rights Reserved.</p>
+    </footer>
+
+    <script src="/javascript/parent.js"></script>
+</body>
+</html>

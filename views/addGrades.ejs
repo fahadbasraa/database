@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/addGrades.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="/images/download.jpg" alt="School Logo" id="img">
+                <h1>Sabri Public High School</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="community.html">Community</a></li>
+                <li><a href="faculty.html">Back to Faculty Panel</a></li>
+                <li><a href="logout.html">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="grades-container">
+            <h2>Add Student Grades</h2>
+            <form id="add-grades-form">
+                <input type="text" id="student-name" placeholder="Enter Student Name" required>
+                <input type="text" id="subject-name" placeholder="Enter Subject Name" required>
+                <input type="number" id="marks-obtained" placeholder="Enter Marks Obtained" min="0" required>
+                <input type="number" id="total-marks" placeholder="Enter Total Marks" min="1" required>
+                <button type="button" onclick="submitGrades()">Submit Grades</button>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Sabri Public High School, Chak 313 JB. All Rights Reserved.</p>
+    </footer>
+    <script src="/javascript/addGrades.js"></script>
+</body>
+
+</html>

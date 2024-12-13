@@ -1,0 +1,130 @@
+header {
+    background-color: #1E88E5;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 80px;
+    width: 80px;
+    margin-right: 10px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+.attendance {
+    height: 730px; /* Similar height as the login container */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.attendance-form {
+    height: 455px; /* Similar size for consistency */
+    width: 455px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    border-radius: 15px;
+    background-color: #fafafa; /* Light gray background */
+    padding: 20px; /* Spacing inside the form */
+}
+
+/* Form Fields */
+form label {
+    font-size: 16px;
+    font-weight: bold;
+    display: block;
+    margin: 15px 0 5px;
+}
+
+form input[type="text"],
+form input[type="date"],
+form select {
+    width: 100%; /* Full width for inputs */
+    height: 40px;
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 8px; /* Rounded corners for consistency */
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+form input:focus,
+form select:focus {
+    border-color: #0073e6; /* Highlight color for focus */
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 115, 230, 0.5); /* Subtle glow */
+}
+
+/* Submit Button */
+form button {
+    width: 100%; /* Full width button */
+    height: 50px;
+    margin-top: 20px;
+    background-color: #0073e6; /* Brighter blue */
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+form button:hover {
+    background-color: #005bb5; /* Darker blue on hover */
+    transform: scale(1.05); /* Slight zoom effect */
+}
+
+/* Placeholder */
+input::placeholder {
+    font-size: 14px; /* Slightly larger */
+}
+
+/* Header */
+h2 {
+    text-align: center;
+    font-size: 1.8em;
+    color: #0073e6;
+    margin-bottom: 20px;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #0073e6;
+    color: white;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    font-size: 14px;
+}

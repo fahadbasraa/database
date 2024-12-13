@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty Panel</title>
+    <link rel="stylesheet" href="/css/faculty.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="/images/download.jpg" alt="School Logo" id="img">
+                <h1>Sabri Public High School</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="community.html">Community</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="logout.html">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Faculty Panel Section -->
+    <main>
+        <section id="faculty-panel" class="panel">
+            <h2>Welcome Faculty Member</h2>
+
+            <!-- Faculty Actions (Buttons for actions they can perform) -->
+            <div class="button-container">
+                <button onclick="viewGrades()">View Student Grades</button>
+                <button onclick="addGrades()">Add Student Grades</button>
+                <button onclick="viewStudentProgress()">View Student Progress</button>
+                <button onclick="viewSchedules()">View Class Schedules</button>
+                <button onclick="location.href='addAttendance.html'">Add Attendance</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Sabri Public High School, Chak 313 JB. All Rights Reserved.</p>
+    </footer>
+
+    <script src="/javascript/faculty.js"></script>
+</body>
+</html>

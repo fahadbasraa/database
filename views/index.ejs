@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sabri Public High School</title>
+    <link rel="stylesheet" href="/css/home.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img id="img" src="/images/download.jpg" alt="School Logo">
+                <h1 style="color:white; font-size:1.5em;">Sabri Public High School</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="admission.html">Admission</a></li>
+                <li><a href="community.html">Community</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- Home Section -->
+    <section id="home" class="home">
+        <h1>Welcome to <%=name%></h1>
+        <p>Located in Chak 313 JB, our mission is to provide quality education and empower our students to achieve their dreams in a nurturing environment.</p>
+        <a class="special-button" href="first.html">Get Started</a>
+    </section>
+    <section id="principal-message" class="message">
+        <div class="message-container">
+            <h2>Message from the Principal</h2>
+            <p>
+                Dear Parents,  
+                At Sabri Public High School, we are dedicated to nurturing the leaders of tomorrow. Our mission is to provide a solid foundation of education that not only emphasizes academic excellence but also instills values of integrity, discipline, and compassion.  
+                We recognize that education is a shared journey between the school and families, and together, we can ensure a brighter future for our students.
+            </p>
+            <p>
+                We are committed to creating a supportive and challenging environment where every child can discover their unique potential and achieve greatness. As we move forward, I assure you that our focus will remain on developing well-rounded individuals who are equipped to excel academically and contribute positively to society.
+            </p>
+            <p>
+                Thank you for entrusting us with your child's education. Let us work hand in hand to inspire and empower them to reach their highest aspirations.
+            </p>
+            <p style="text-align: right; font-style: italic; margin-top: 30px;">
+                Yours sincerely,  
+                <br>
+                <strong>Surf Javed</strong>  
+                <br>
+                Principal, Sabri Public High School
+            </p>
+            <p style="text-align: right; margin-top: 10px; font-family: 'Dancing Script', cursive; font-size: 1.5em; color: #333;">
+                Surf Javed
+            </p>
+        </div>
+    </section>
+    
+
+    <!-- Contact Form Section -->
+    <section id="contact" class="contact">
+        <h2>Contact Us</h2>
+        <form>
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" placeholder="Your Full Name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Your Email Address" required>
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Sabri Public High School, Chak 313 JB. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
