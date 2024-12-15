@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drop Student</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        h1 {
+            text-align: center;
+            color: #1565C0;
+            margin-bottom: 20px;
+        }
+        .form-container {
+            width: 90%;
+            max-width: 400px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .form-container form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .form-container input, .form-container button {
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 16px;
+            width: 100%;
+        }
+        .form-container button {
+            background-color: #1565C0;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .form-container button:hover {
+            background-color: #0d47a1;
+        }
+        .message {
+            font-size: 16px;
+            color: #1565C0;
+            margin-top: 10px;
+        }
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Drop Student</h1>
+        <form method="POST" action="/admin/drop-student">
+            <label for="rollNumber">Enter Roll Number:</label>
+            <input type="text" id="rollNumber" name="rollNumber" placeholder="Roll Number" required>
+            <button type="submit">Delete Student</button>
+        </form>
+
+        <% if (message) { %>
+            <p class="message <%= message.includes('error') ? 'error' : '' %>"><%= message %></p>
+        <% } %>
+    </div>
+</body>
+</html>

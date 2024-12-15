@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <style>
+        .error-msg {
+            color: red;
+            font-size: 14px;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="login">
+        <form action="/admin/login" class="sp" method="post">
+            <h3><b>LOGIN</b></h3>
+            <% if (errorMessage) { %>
+                <p class="error-msg"><%= errorMessage %></p>
+            <% } %>
+            <label id="email" for="">Email</label>
+            <input id="email_holder" name="email" type="email" placeholder="Enter the email" required>
+            <label id="password" for="">Password</label>
+            <input id="password_holder" name="password" placeholder="Password" type="password" required>
+            <button id="Btn">Log In</button>
+            <a id="forget" href="forget.html">Forget password?</a>
+        </form>
+    </div>
+</body>
+</html>

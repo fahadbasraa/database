@@ -1,0 +1,97 @@
+/* Login Container */
+.login {
+    height: 730px; /* Increased by 30% */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sp {
+    height: 455px; /* Increased by 30% */
+    width: 455px; /* Increased by 30% */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Softer shadow */
+    border-radius: 15px;
+    background-color: #fafafa; /* Changed to light gray for consistency */
+}
+
+/* Input Fields */
+#email, #password {
+    font-size: 18px; /* Slightly larger for better readability */
+    margin: 12px;
+    margin-left: 30px;
+}
+
+#email_holder, #password_holder {
+    padding: 12px; /* Increased padding for spacing */
+    margin: 12px;
+    margin-left: 30px;
+}
+
+#email_holder:active, #email_holder:focus,
+#password_holder:active, #password_holder:focus {
+    border-color: #ccc; /* Subtle border color */
+    outline: none;
+    border: 1px solid #ddd; /* Softer border */
+}
+
+/* Button */
+#Btn {
+    width: 390px; /* Increased by 30% */
+    height: 52px; /* Increased by 30% */
+    padding: 12px;
+    margin: 12px;
+    margin-left: 30px;
+    border-radius: 12px;
+    background-color: #0073e6; /* Brighter blue */
+    color: white;
+    font-size: 16px; /* Slightly larger text */
+    border: none;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+#Btn:hover {
+    background-color: #005bb5; /* Darker blue for hover effect */
+    transform: scale(1.05); /* Slight zoom effect */
+}
+
+/* Hyperlink */
+#forget {
+    margin-left: 110px; /* Adjusted for spacing */
+    text-decoration: none;
+    color: #0073e6; /* Matching link color */
+}
+
+#forget:hover {
+    text-decoration: underline;
+    color: #005bb5; /* Hover color */
+}
+
+/* Inputs */
+input[type="text"],
+input[type="password"] {
+    width: 390px; /* Increased by 30% */
+    height: 52px; /* Increased by 30% */
+    padding: 6px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 8px; /* Rounded corners for modern look */
+    font-size: 16px;
+}
+
+/* Placeholder */
+input::placeholder {
+    font-size: 14px; /* Slightly larger */
+}
+
+/* Header */
+h3 {
+    margin-left: 175px;
+    font-size: 1.7em; /* Adjusted to match new card heading size */
+    color: #0073e6; /* Updated to brighter blue */
+}
+
+/* Sign Up Link */
+#signup {
+    color: #0073e6; /* Matching link color */
+    font-size: 1.1em; /* Slightly larger for emphasis */
+}

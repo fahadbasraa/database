@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Teachers</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        h2 {
+            color: #333;
+            margin: 20px;
+        }
+
+        .container {
+            width: 80%;
+            margin: 40px auto;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Styling for the total students count */
+        .total-students {
+            background-color: #1E88E5;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #1565C0;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #ddd;
+        }
+
+        .error {
+            color: red;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .no-teachers {
+            font-size: 1.2em;
+            color: #555;
+        }
+
+        header {
+            background-color: #1E88E5;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background-color: #1565C0;
+            color: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: #fff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 60px;
+            width: 60px;
+            margin-right: 10px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: 500;
+            padding: 8px 12px;
+            transition: color 0.3s ease, background-color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            background-color: #1E88E5;
+            border-radius: 5px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            background-color: #1565C0;
+            color: #fff;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="/images/download.jpg" alt="School Logo">
+            <h1 style="color:white; font-size:1.5em;">Sabri Public High School</h1>
+        </div>
+        <ul class="nav-links">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="admission.html">Admission</a></li>
+            <li><a href="#community">Community</a></li>
+            <li><a href="home.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="container">
+    <!-- Display error if any -->
+    <% if (err) { %>
+        <p class="error"><%= err %></p>
+    <% } %>
+
+    <!-- Display all teachers -->
+    <% if (faculties.length > 0) { %>
+        <table>
+            <thead>
+                <tr>
+                    <th>Full Name</th>
+                    <th>Email</th>
+                    <th>Grade</th>
+                    <th>Phone Number</th>
+                    <th>Faculty ID</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% faculties.forEach((teacher) => { %>
+                    <tr>
+                        <td><%= teacher.fullName %></td>
+                        <td><%= teacher.email %></td>
+                        <td><%= teacher.grade %></td>
+                        <td><%= teacher.phoneNumber %></td>
+                        <td><%= teacher.facultyId %></td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    <% } else { %>
+        <p class="no-teachers">No teachers found.</p>
+    <% } %>
+</div>
+
+<footer>
+    <p>&copy; 2024 School Management System. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>

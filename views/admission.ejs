@@ -3,20 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Admission Form</title>
     <link rel="stylesheet" href="/css/admission.css">
 </head>
 <body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img id="img" src="/images/download.jpg" alt="School Logo">
+                <h1 style="color:white; font-size:1.5em;">Sabri Public High School</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="admission.html">Admission</a></li>
+                <li><a href="community.html">Community</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
     <!-- Admission Form Section -->
 <section id="admission" class="admission">
     <h2>Admission Form</h2>
-    <form id="admission-form">
+    
+
+    <form id="admission-form" action="/admission" method="POST">
         <label for="student-name">Student Name</label>
-        <input type="text" id="student-name" name="student-name" placeholder="Full Name" required>
+        <input type="text" id="student-name" name="studentName" placeholder="Full Name" required>
 
         <label for="age">Age</label>
         <input type="number" id="age" name="age" placeholder="Age" required>
-
+        
         <label for="grade">Grade</label>
         <select id="grade" name="grade" required>
             <option value="" disabled selected>Select Grade</option>
@@ -33,7 +50,7 @@
         </select>
 
         <label for="email">Parent's Email</label>
-        <input type="email" id="email" name="email" placeholder="Parent's Email" required>
+        <input type="email" id="email" name="parentEmail" placeholder="Parent's Email" required>
 
         <label for="phone">Phone Number</label>
         <input type="tel" id="phone" name="phone" placeholder="Phone Number" required>
@@ -44,6 +61,11 @@
         <button type="submit">Submit Application</button>
     </form>
 </section>
-<script src="/javascript/admission.js"></script>
+
+<footer>
+    <p>&copy; 2024 Sabri Public High School, Chak 313 JB. All Rights Reserved.</p>
+</footer>
+
+<!-- <script src="/javascript/admission.js"></script> -->
 </body>
 </html>

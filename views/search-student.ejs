@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Student</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        h1 {
+            text-align: center;
+            color: #1565C0;
+            margin-top: 20px;
+        }
+        .search-section {
+            width: 90%;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .search-section form {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .search-section input, .search-section button {
+            padding: 10px 15px;
+            font-size: 16px;
+            margin: 10px 0;
+        }
+        table {
+            width: 90%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+        thead {
+            background-color: #1565C0;
+            color: #fff;
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+        }
+        tbody tr:hover {
+            background-color: #f1f1f1;
+        }
+        td {
+            color: #555;
+        }
+        .no-data {
+            text-align: center;
+            padding: 20px;
+            font-size: 16px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <h1>Search Student</h1>
+
+    <!-- Search Section -->
+    <div class="search-section">
+        <form method="GET" action="/admin/search-student">
+            <div>
+                <label for="rollNumber">Roll Number:</label>
+                <input type="text" name="rollNumber" id="rollNumber" value="<%= rollNumber || '' %>" placeholder="Enter Roll Number">
+            </div>
+            <div>
+                <label for="name">Name:</label>
+                <input type="text" name="name" id="name" value="<%= name || '' %>" placeholder="Enter Full Name">
+            </div>
+            <button type="submit">Search</button>
+        </form>
+    </div>
+
+    <!-- Results Table -->
+    <% if (students.length > 0) { %>
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Roll Number</th>
+                    <th>Full Name</th>
+                    <th>Grade</th>
+                    <th>Date of Birth</th>
+                    <th>Parent's Name</th>
+                    <th>Parent's Email</th>
+                    <th>Parent's Phone</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% students.forEach((student, index) => { %>
+                    <tr>
+                        <td><%= index + 1 %></td>
+                        <td><%= student.rollNumber %></td>
+                        <td><%= student.fullName %></td>
+                        <td><%= student.grade %></td>
+                        <td><%= new Date(student.dob).toDateString() %></td>
+                        <td><%= student.parents.name %></td>
+                        <td><%= student.parents.email %></td>
+                        <td><%= student.parents.number %></td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    <% } else { %>
+        <p class="no-data">No students found matching the criteria.</p>
+    <% } %>
+</body>
+</html>

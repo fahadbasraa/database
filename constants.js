@@ -1,1 +1,1 @@
-export const DB_NAME = "SMS"
+export const DB_NAME = "fahad"
