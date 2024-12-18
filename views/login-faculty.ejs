@@ -3,21 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Faculty Login</title>
     <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
     <div class="login">
+        <!-- Form for faculty login -->
         <form action="/faculty/login" class="sp" method="post">
             <h3><b>LOGIN</b></h3>
+            
+            <!-- Error Message Display -->
+            <% if (error) { %>
+                <p style="color: red; text-align: center;"><%= error %></p>
+            <% } %>
+            
             <label id="email" for="">Email</label>
-            <input id="email_holder" name="email" type="email" placeholder="Enter the email">
+            <input id="email_holder" name="email" type="email" placeholder="Enter the email" required>
+            
             <label id="password" for="">Password</label>
-            <input id="password_holder" name="password" placeholder="Password" type="password">
+            <input id="password_holder" name="password" placeholder="Password" type="password" required>
+            
             <button id="Btn">Log In</button>
             <a id="forget" href="forget.html">Forget password?</a>
         </form>
     </div>
-
 </body>
 </html>

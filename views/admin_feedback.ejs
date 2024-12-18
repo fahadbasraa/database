@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Feedback</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff; /* Light blue background */
+        }
+
+        #feedback-section {
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #ffffff; /* White background */
+            border-radius: 8px;
+            width: 90%;
+            max-width: 1200px; /* Set max width for the section */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            min-height: 400px; /* Ensure there's enough space even if feedback is small */
+            overflow: hidden;
+        }
+
+        #feedback-section h2 {
+            text-align: center;
+            color: #1f63eb; /* Darker blue for heading */
+        }
+
+        .delete-button {
+            display: inline-block;
+            padding: 5px 10px;
+            background-color: #296ded;
+            color: white;
+            text-align: center;
+            font-size: 14px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .delete-button:hover {
+            background-color: #071284;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            table-layout: fixed; /* Ensure columns have fixed widths */
+        }
+
+        table th, table td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        table th {
+            background-color: #1874d5; /* Light blue for table headers */
+            color: #ffffff; /* Dark blue text */
+        }
+
+
+        /* Specific column widths */
+        table td, table th {
+            max-width: 100%; /* Allow for flexible column resizing */
+        }
+
+        /* Column-specific width adjustments */
+        table td:nth-child(1), table th:nth-child(1) { 
+            width: 15%; /* Date column */
+        }
+
+        table td:nth-child(2), table th:nth-child(2) { 
+            width: 10%; /* Parent Email column */
+            overflow-wrap: break-word; /* Handle long email addresses */
+        }
+
+        table td:nth-child(3), table th:nth-child(3) { 
+            width: 14%; /* Student Name column */
+        }
+
+        table td:nth-child(4), table th:nth-child(4) { 
+            width: 35%; /* Feedback column */
+            word-wrap: break-word; /* Allow long feedback messages to break */
+            overflow-wrap: break-word; /* Ensure feedback text wraps within cell */
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            table, th, td {
+                font-size: 14px; /* Smaller font on small screens */
+                padding: 8px;
+            }
+
+            table td:nth-child(1), table th:nth-child(1) { 
+                width: 20%; /* Increase Date column width for small screens */
+            }
+
+            table td:nth-child(2), table th:nth-child(2) { 
+                width: 30%; /* Adjust Parent Email column width for small screens */
+            }
+
+            table td:nth-child(3), table th:nth-child(3) { 
+                width: 25%; /* Adjust Student Name column width for small screens */
+            }
+
+            table td:nth-child(4), table th:nth-child(4) { 
+                width: 25%; /* Adjust Feedback column width for small screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Feedback Section -->
+    <main>
+        <section id="feedback-section">
+            <h2>All Parent Feedback</h2>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Parent Email</th>
+                        <th>Student Name</th>
+                        <th>Feedback</th>
+                        <th>Action</th> <!-- Add an Action column for delete button -->
+                    </tr>
+                </thead>
+                <tbody>
+                    <% feedbacks.forEach(feedback => { %>
+                        <tr>
+                            <td><%= new Date(feedback.date).toLocaleString() %></td>
+                            <td><%= feedback.parentEmail %></td>
+                            <td><%= feedback.studentName %></td>
+                            <td><%= feedback.message %></td>
+                            <td>
+                                <!-- Check if feedback._id is available -->
+                                <% if (feedback._id) { %>
+                                    <!-- Delete Button Form -->
+                                    <form action="/admin/feedback/delete/<%= feedback._id %>" method="POST" style="display:inline;">
+                                        <button type="submit" class="delete-button">Delete</button>
+                                    </form>
+                                <% } else { %>
+                                    <p>No ID</p>
+                                <% } %>
+                            </td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        </section>
+    </main>
+</body>
+</html>

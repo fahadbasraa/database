@@ -22,7 +22,6 @@
             </ul>
         </div>
     </header>
-
     <!-- Parent Panel Section -->
     <main>
         <section id="parent-panel" class="panel">
@@ -30,11 +29,10 @@
 
             <!-- Parent Actions (Buttons for actions they can perform) -->
             <div class="button-container">
-                <button onclick="viewGrades()">View Student Grades</button>
-                <button onclick="viewAttendance()">View Student Attendance</button>
-                <button onclick="giveReview()">Give Review</button>
+                <button onclick="location.href='/parent/marks/<%= parentEmail %>'">View Student Grades</button>
+                <button onclick="location.href='/parent/attendance/<%= parentEmail %>'">View Student Attendance</button>
+                <button onclick="location.href='/parent/feedback/<%= parentEmail %>'">Give Review</button>
             </div>
-
             <!-- Hidden Sections for Grades, Attendance, and Reviews -->
             <div id="grades-section" class="hidden">
                 <h3>Student Grades</h3>

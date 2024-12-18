@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Marks</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7fc; /* Light background color */
+            color: #333;
+            margin: 0;
+        }
+
+        /* Main Section Styling */
+        main {
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #265df4; /* Blue header color */
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        /* Filter Form Styling */
+        .filter-form {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .filter-form label {
+            font-size: 16px;
+            color: #555;
+        }
+
+        .filter-form input[type="text"],
+        .filter-form input[type="date"],
+        .filter-form button {
+            padding: 8px 12px;
+            font-size: 14px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .filter-form input[type="text"]:focus,
+        .filter-form input[type="date"]:focus {
+            border-color: #265df4;
+        }
+
+        .filter-form button {
+            background-color: #265df4;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .filter-form button:hover {
+            background-color: #214ab4; /* Darker blue */
+        }
+
+        /* Table Styling */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        table th, table td {
+            padding: 15px;
+            text-align: left;
+            font-size: 14px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        table th {
+            background-color: #265df4;
+            color: white;
+            text-transform: uppercase;
+        }
+
+        table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        table tr:hover {
+            background-color: #f1f5ff;
+        }
+
+        /* Responsive Table */
+        @media (max-width: 768px) {
+            table, table th, table td {
+                display: block;
+            }
+
+            table thead {
+                display: none;
+            }
+
+            table tr {
+                margin-bottom: 15px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            }
+
+            table td {
+                padding: 10px;
+                text-align: right;
+                position: relative;
+            }
+
+            table td::before {
+                content: attr(data-label);
+                position: absolute;
+                left: 10px;
+                font-weight: bold;
+                text-transform: uppercase;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h2>View Marks</h2>
+
+        <!-- Filter Form -->
+        <form method="GET" action="/faculty/view-marks/<%= faculty.email %>" class="filter-form">
+            <!-- Subject Filter (optional) -->
+            <label for="subject">Subject:</label>
+            <input type="text" id="subject" name="subject" value="<%= subject %>" placeholder="Subject" />
+
+            <!-- Term Filter (optional) -->
+            <label for="term">Term:</label>
+            <input type="text" id="term" name="term" value="<%= term %>" placeholder="Term" />
+
+            <!-- Date Filter (optional) -->
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" value="<%= date %>" placeholder="Date" />
+
+            <!-- Filter Button -->
+            <button type="submit">Filter</button>
+        </form>
+
+        <!-- Table for Student Marks -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Roll Number</th>
+                    <th>Full Name</th>
+                    <th>Subject</th>
+                    <th>Marks</th>
+                    <th>Term</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% students.forEach(student => { %>
+                    <% student.marks.forEach(mark => { %>
+                        <% if (!subject || mark.subject.toLowerCase() === subject.toLowerCase()) { %>
+                            <% if (!term || mark.term.toLowerCase() === term.toLowerCase()) { %>
+                                <% if (!date || new Date(mark.date).toISOString().split('T')[0] === date) { %>
+                                    <tr>
+                                        <td data-label="Roll Number"><%= student.rollNumber %></td>
+                                        <td data-label="Full Name"><%= student.fullName %></td>
+                                        <td data-label="Subject"><%= mark.subject %></td>
+                                        <td data-label="Marks"><%= mark.marks %></td>
+                                        <td data-label="Term"><%= mark.term %></td>
+                                        <td data-label="Date"><%= new Date(mark.date).toLocaleDateString() %></td>
+                                    </tr>
+                                <% } %>
+                            <% } %>
+                        <% } %>
+                    <% }) %>
+                <% }) %>
+            </tbody>
+        </table>
+    </main>
+</body>
+</html>

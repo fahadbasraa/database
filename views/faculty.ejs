@@ -17,23 +17,22 @@
                 <li><a href="home.html">Home</a></li>
                 <li><a href="community.html">Community</a></li>
                 <li><a href="contact.html">Contact</a></li>
-                <li><a href="logout.html">Logout</a></li>
+                <li><a href="/faculty/login">Logout</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- Faculty Panel Section -->
     <main>
         <section id="faculty-panel" class="panel">
-            <h2>Welcome Faculty Member</h2>
+            <h2>Welcome <%= faculty.fullName %></h2>
 
-            <!-- Faculty Actions (Buttons for actions they can perform) -->
+            <!-- Faculty Actions -->
             <div class="button-container">
-                <button onclick="viewGrades()">View Student Grades</button>
-                <button onclick="addGrades()">Add Student Grades</button>
-                <button onclick="viewStudentProgress()">View Student Progress</button>
-                <button onclick="viewSchedules()">View Class Schedules</button>
-                <button onclick="location.href='addAttendance.html'">Add Attendance</button>
+                <button onclick="location.href='/faculty/view-marks/<%= faculty.email %>'">View Marks</button>
+                <button onclick="location.href='/faculty/add-marks/<%= faculty.email %>'">Add Marks</button>
+                <button onclick="location.href='/faculty/view-attendance/<%= faculty.email %>'">View Attendance</button>
+                <button onclick="location.href='/faculty/add-attendance/<%= faculty.email %>'">Add Attendance</button>
+                <button onclick="location.href='/faculty/edit-marks/<%= faculty.email %>'">Edit Marks</button>
             </div>
         </section>
     </main>

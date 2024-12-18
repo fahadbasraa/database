@@ -1,7 +1,6 @@
 // File: models/admission.js
 import mongoose from 'mongoose';
 
-
 const admissionSchema = new mongoose.Schema({
     studentName: {
         type: String,
@@ -21,7 +20,7 @@ const admissionSchema = new mongoose.Schema({
     },
     phoneNumber: {
         type: String,
-        required: true
+        required: true // This makes the phoneNumber field required
     },
     address: {
         type: String,

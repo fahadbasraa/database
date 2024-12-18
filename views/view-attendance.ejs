@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Attendance</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9; /* Light gray background */
+            color: #333;
+            margin: 0;
+        }
+
+        /* Main Section Styling */
+        main {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        #view-attendance h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #265df4; /* Blue header color */
+            font-size: 24px;
+        }
+
+        /* Date Picker Styling */
+        .date-picker {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .date-picker label {
+            font-size: 16px;
+            margin-right: 10px;
+            color: #555;
+        }
+
+        .date-picker input[type="date"] {
+            padding: 8px 10px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .date-picker input[type="date"]:focus {
+            border-color: #265df4;
+        }
+
+        .date-picker button {
+            padding: 8px 15px;
+            font-size: 14px;
+            color: white;
+            background-color: #265df4; /* Blue button color */
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .date-picker button:hover {
+            background-color: #1843b6; /* Darker blue */
+        }
+
+        /* Table Styling */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        table th, table td {
+            padding: 12px 15px;
+            text-align: left;
+            border: 1px solid #ddd;
+            font-size: 14px;
+        }
+
+        table th {
+            background-color: #265df4; /* Blue color for header */
+            color: white;
+            text-transform: uppercase;
+        }
+
+        table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        table tr:hover {
+            background-color: #f1f5ff; /* Light blue hover */
+        }
+
+        /* Responsive Table */
+        @media (max-width: 768px) {
+            table, table th, table td {
+                display: block;
+            }
+
+            table thead {
+                display: none;
+            }
+
+            table tr {
+                margin-bottom: 15px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            }
+
+            table td {
+                padding: 10px;
+                text-align: right;
+                position: relative;
+            }
+
+            table td::before {
+                content: attr(data-label);
+                position: absolute;
+                left: 10px;
+                font-weight: bold;
+                text-transform: uppercase;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <section id="view-attendance">
+            <h2>Attendance</h2>
+
+            <!-- Date Picker Form -->
+            <form method="GET" action="/faculty/view-attendance/<%= faculty.email %>">
+                <div class="date-picker">
+                    <label for="attendanceDate">Select Date:</label>
+                    <input type="date" id="attendanceDate" name="attendanceDate" required>
+                    <button type="submit">Search</button>
+                </div>
+            </form>
+            
+            <!-- Table for Student Attendance -->
+            <table>
+                <thead>
+                    <tr>
+                        <th>Roll Number</th>
+                        <th>Full Name</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% students.forEach(student => { %>
+                        <% student.attendance.forEach(attendance => { %>
+                            <% if (attendance.date && new Date(attendance.date).toLocaleDateString() === selectedDate) { %>
+                                <tr>
+                                    <td data-label="Roll Number"><%= student.rollNumber %></td>
+                                    <td data-label="Full Name"><%= student.fullName %></td>
+                                    <td data-label="Date"><%= new Date(attendance.date).toLocaleDateString() %></td>
+                                    <td data-label="Status"><%= attendance.status %></td>
+                                </tr>
+                            <% } %>
+                        <% }) %>
+                    <% }) %>
+                </tbody>
+            </table>
+        </section>
+    </main>
+</body>
+</html>

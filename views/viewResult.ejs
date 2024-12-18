@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Annual Result</title>
+    <link rel="stylesheet" href="/css/result.css">
+    <style>
+        /* General Body Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9; /* Light background for contrast */
+    color: #333; /* Text color for readability */
+}
+
+/* Container */
+.container {
+    width: 90%;
+    max-width: 800px;
+    margin: 50px auto;
+    background: #fff; /* White background for the container */
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px 30px;
+    text-align: left;
+}
+
+/* Header Styling */
+h1 {
+    text-align: center;
+    color: #1a73e8; /* Blue shade for the header */
+    margin-bottom: 20px;
+}
+
+/* Student Info Paragraphs */
+p {
+    font-size: 1rem;
+    margin: 8px 0;
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: #fff;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+table thead {
+    background-color: #1a73e8; /* Blue shade for the header */
+    color: #fff; /* White text for contrast */
+}
+
+table th, table td {
+    padding: 10px 15px;
+    border: 1px solid #ddd; /* Light border */
+}
+
+table th {
+    text-align: center;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+table tbody tr:nth-child(even) {
+    background-color: #f2f2f2; /* Light gray for alternate rows */
+}
+
+table tbody tr:hover {
+    background-color: #eaf3ff; /* Highlight row on hover */
+}
+
+/* Message Styling */
+.no-results {
+    text-align: center;
+    color: #e53935; /* Red color for emphasis */
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.grade-message {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        padding: 15px 20px;
+    }
+
+    table th, table td {
+        font-size: 0.9rem; /* Adjust font size for smaller screens */
+    }
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Annual Result</h1>
+        <p><strong>Student Name:</strong> <%= studentName %></p>
+        <p><strong>Roll Number:</strong> <%= rollNumber %></p>
+        <p><strong>Grade:</strong> <%= grade %></p>
+
+        <% if (marks.length > 0) { %>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Subject</th>
+                        <th>Total Marks</th>
+                        <th>Obtained Marks</th>
+                        <th>Term</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% marks.forEach(mark => { %>
+                    <tr>
+                        <td><%= mark.subject %></td>
+                        <td><%= mark.totalmarks %></td>
+                        <td><%= mark.marks %></td>
+                        <td><%= mark.term %></td>
+                    </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        <% } else { %>
+            <p class="no-results">The result will be announced later.</p>
+        <% } %>
+
+        <!-- Display grade message -->
+        <p class="grade-message"><%= message %></p>
+    </div>
+</body>
+</html>

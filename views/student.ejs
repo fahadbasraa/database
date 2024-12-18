@@ -23,35 +23,12 @@
 
     <main>
         <section class="student-panel">
-            <h2>Welcome, <%= name%></h2>
+            <h2>Welcome, <%= student.fullName%></h2>
             <div class="button-container">
-                <button onclick="viewMarks()">View Marks</button>
-                <button onclick="viewAttendance()">View Attendance</button>
-                <button onclick="viewAnnualResult()">View Annual Result</button>
-            </div>
-        </section>
-
-        <!-- View Marks Section -->
-        <section id="marks-section" class="hidden">
-            <h3>Your Marks</h3>
-            <div id="marks-content">
-                <!-- Marks content will be dynamically added here -->
-            </div>
-        </section>
-
-        <!-- View Attendance Section -->
-        <section id="attendance-section" class="hidden">
-            <h3>Your Attendance</h3>
-            <div id="attendance-content">
-                <!-- Attendance content will be dynamically added here -->
-            </div>
-        </section>
-
-        <!-- View Annual Result Section -->
-        <section id="result-section" class="hidden">
-            <h3>Your Annual Result</h3>
-            <div id="result-content">
-                <!-- Result content will be dynamically added here -->
+                    <button onclick="location.href='/student/view-marks/<%= student.rollNumber %>'">View Marks</button>
+                    <button onclick="location.href='/student/view-attendance/<%= student.rollNumber %>'">View Attendance</button>
+                    <button onclick="location.href='/student/view-result/<%= student.rollNumber %>'">View Annual Result</button>
+                
             </div>
         </section>
     </main>

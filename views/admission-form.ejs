@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admission Details</title>
+    <link rel="stylesheet" href="/css/admin.css">
+    <style>
+        /* General Body and Layout */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            color: black;
+        }
+        
+        h1 {
+            text-align: center;
+            font-size: 2.5em;
+            color: #1874d5;
+            margin-top: 40px;
+        }
+        
+        /* Table Styles */
+        .admission-list {
+            width: 80%;
+            margin: 30px auto;
+            border-collapse: collapse;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .admission-list th, .admission-list td {
+            padding: 15px 20px;
+            text-align: left;
+        }
+        
+        .admission-list th {
+            background-color: #1874d5;
+            color: white;
+            font-size: 1.1em;
+        }
+
+        .admission-list td {
+            border-top: 1px solid #eee;
+            font-size: 1em;
+        }
+
+        .admission-list tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .admission-list tr:hover {
+            background-color: #eaf2f8;
+        }
+
+        /* Responsive Table */
+        @media (max-width: 768px) {
+            .admission-list {
+                width: 95%;
+            }
+            
+            .admission-list th, .admission-list td {
+                font-size: 0.9em;
+                padding: 10px;
+            }
+        }
+
+        /* Adding Pagination Styling (if needed in future) */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .pagination a {
+            color: #1874d5;
+            padding: 10px 15px;
+            text-decoration: none;
+            border: 1px solid #878585;
+            margin: 0 5px;
+            border-radius: 4px;
+        }
+
+        .pagination a:hover {
+            background-color: #5D6D7E;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Admission Requests</h1>
+    <table class="admission-list">
+        <thead>
+            <tr>
+                <th>Student Name</th>
+                <th>Age</th>
+                <th>Grade</th>
+                <th>Parent Email</th>
+                <th>Phone Number</th>
+                <th>Address</th>
+                <th>Admission Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% admissions.forEach(admission => { %>
+                <tr>
+                    <td><%= admission.studentName %></td>
+                    <td><%= admission.age %></td>
+                    <td><%= admission.grade %></td>
+                    <td><%= admission.parentEmail %></td>
+                    <td><%= admission.phoneNumber %></td>
+                    <td><%= admission.address %></td>
+                    <td><%= new Date(admission.admissionDate).toLocaleString() %></td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+
+    <!-- Pagination (if needed) -->
+    <div class="pagination">
+        <a href="#">Previous</a>
+        <a href="#">1</a>
+        <a href="#">2</a>
+        <a href="#">Next</a>
+    </div>
+</body>
+</html>

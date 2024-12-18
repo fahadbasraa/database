@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Attendance</title>
+    <link rel="stylesheet" href="/css/student.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff; /* White Background */
+            color: #333;
+            font-size: 16px; /* Increased font size */
+        }
+
+        main {
+            max-width: 900px;
+            margin: 160px auto;
+            padding: 30px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 28px; /* Larger heading */
+            color: #2a3d66; /* Dark Blue */
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        section.attendance-search {
+            margin-bottom: 30px;
+        }
+
+        section.attendance-search form {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        label {
+            font-size: 18px; /* Increased label size */
+            color: #2a3d66; /* Dark Blue */
+        }
+
+        input[type="date"] {
+            padding: 10px 15px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px; /* Increased button text size */
+            color: white;
+            background-color: #007bff; /* Blue Button */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3; /* Darker Blue on Hover */
+        }
+
+        section.attendance-records h2 {
+            margin-top: 0;
+            font-size: 24px; /* Larger subheading */
+            color: #2a3d66;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            padding: 15px;
+            margin-bottom: 10px;
+            background-color: #ffffff; /* Light Blue for Attendance Items */
+            border: 1px solid #ffffff; /* Soft Blue Border */
+            border-radius: 5px;
+            font-size: 18px; /* Larger font size for list items */
+        }
+
+        li:nth-child(odd) {
+            background-color: #ffffff; /* Slightly Darker Blue for Odd Items */
+        }
+
+        p {
+            font-size: 18px; /* Larger text for no records found */
+            color: #777;
+            text-align: center;
+        }
+    
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Attendance for Roll Number: <%= rollNumber %></h1>
+
+        <section class="attendance-search">
+            <form action="/student/view-attendance/<%= rollNumber %>" method="GET">
+                <label for="date">Search Attendance by Date:</label>
+                <input type="date" id="date" name="date" value="<%= queryDate %>">
+                <button type="submit">Search</button>
+            </form>
+        </section>
+        <section class="attendance-records">
+            <h2>Attendance for <%= queryDate %></h2>
+            <% if (attendance.length > 0) { %>
+                <ul>
+                    <% attendance.forEach(record => { %>
+                        <li>
+                            <!-- <b>Date:</b> <%= new Date(record.date).toLocaleDateString() %>,  -->
+                            <b>Status:</b> <%= record.status %>
+                        </li>
+                    <% }); %>
+                </ul>
+            <% } else { %>
+                <p>No attendance records found for this date.</p>
+            <% } %>
+        </section>
+    </main>
+</body>
+</html>
